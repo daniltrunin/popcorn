@@ -6,6 +6,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --primary-color: #1b1d1c;
+
+  --background-color: #F9F7E8;
 }
 
 a {
@@ -17,4 +21,9 @@ body {
   padding: 0;
 
   box-sizing: border-box;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: var(--background-color);
 }
