@@ -1,8 +1,18 @@
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Search from "./components/Search/Search";
+import Details from "./components/Details/Details";
+
 function App() {
   return (
-    <>
-      <div>popcorn1 preview</div>
-    </>
+    <BrowserRouter>
+      <nav>
+        <Link to="/">Search</Link> | <Link to="/details">Details</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Search />} />
+        <Route path="/details" element={<Details />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
