@@ -1,16 +1,16 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Search from "./components/Search/Search";
-import Details from "./components/Details/Details";
+import Home from "./views/Home/Home";
+import About from "./views/About/About"
 
 function App() {
   return (
     <BrowserRouter>
       <nav>
-        <Link to="/">Search</Link> | <Link to="/details">Details</Link>
+        <Link to="/">Home</Link> | <Link to="/about">About</Link>
       </nav>
       <Routes>
-        <Route path="/" element={<Search />} />
-        <Route path="/details" element={<Details />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>
   );
