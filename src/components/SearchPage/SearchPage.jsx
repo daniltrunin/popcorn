@@ -2,10 +2,16 @@ import styles from "./searchpage.module.css";
 
 import { useState } from "react";
 
+import requestAPI from "../../common/services/movies";
+
 export default function SearchPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const handleSubmit = () => {
-    console.log(searchQuery);
+    requestAPI(searchQuery).then((data) => {
+      const newItem = document.createElement("div");
+      newItem.textContent = data.data.Title;
+      document.querySelector("#search-results-id").append(newItem);
+    });
   };
   return (
     <div className={styles["search-page"]}>
@@ -21,6 +27,7 @@ export default function SearchPage() {
         <button onClick={handleSubmit} className={styles["submit-btn"]}>
           Enter
         </button>
+        <div id="search-results-id"></div>
       </div>
     </div>
   );
