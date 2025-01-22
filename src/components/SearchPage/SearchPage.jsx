@@ -6,12 +6,14 @@ import requestAPI from "../../common/services/movies";
 
 export default function SearchPage() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [queryResult, setQueryResult] = useState("");
   const handleSubmit = () => {
     requestAPI(searchQuery).then((data) => {
-      const newItem = document.createElement("div");
-      newItem.textContent = data.data.Title;
-      document.querySelector("#search-results-id").append(newItem);
+      setQueryResult(data);
     });
+    const newItem = document.createElement("div");
+    newItem.textContent = queryResult.data.Title;
+    document.querySelector("#search-result-id").append(newItem);
   };
   return (
     <div className={styles["search-page"]}>
@@ -27,7 +29,7 @@ export default function SearchPage() {
         <button onClick={handleSubmit} className={styles["submit-btn"]}>
           Enter
         </button>
-        <div id="search-results-id"></div>
+        <div id="search-result-id"></div>
       </div>
     </div>
   );
