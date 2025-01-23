@@ -9,8 +9,12 @@ export default function SearchPage() {
   const [queryResult, setQueryResult] = useState(null);
 
   const handleSubmit = async () => {
-    const data = await requestAPI(searchQuery);
-    setQueryResult(data);
+    try {
+      const result = await requestAPI(searchQuery);
+      setQueryResult(result);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -28,7 +32,7 @@ export default function SearchPage() {
           Enter
         </button>
         <div id="search-result-id">
-          {queryResult ? queryResult.data.Title : ""}
+          {queryResult ? queryResult.results[0].title : ""}
         </div>
       </div>
     </div>

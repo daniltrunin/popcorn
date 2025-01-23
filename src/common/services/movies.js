@@ -1,7 +1,19 @@
 import axios from "axios";
 
-const apikey = "3be32c27";
+const ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MDVkN2E5NWEwMDQ4NTE3NTc3MTUwZmY2NTZiODcwYSIsIm5iZiI6MTczNzYzNTQ5OS4yMTcsInN1YiI6IjY3OTIzNmFiN2FmMjM1MjZkNzQ3MDJhMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ruyQsJaYSdT3yTskcbhS_Q861fdQSXiMdDl5Fxncjk4";
 
-export default function requestAPI(title) {
-  return axios(`http://www.omdbapi.com/?apikey=${apikey}&t=${title}`);
+const requestAPI = function (title) {
+  return axios.get(
+    "https://api.themoviedb.org/3/search/movie",
+    {
+      params: {
+        query: `${title}`
+      },
+      headers: {
+        Authorization: `Bearer ${ACCESS_TOKEN}`
+      }
+    }
+  ).then((response) => { return response.data })
 }
+
+export default requestAPI;
