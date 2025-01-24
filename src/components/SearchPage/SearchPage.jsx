@@ -19,6 +19,7 @@ export default function SearchPage() {
         setQueryResult(null);
       } else {
         setQueryResult(result);
+        console.log(result);
       }
     } catch (error) {
       console.log(error);
@@ -51,12 +52,16 @@ export default function SearchPage() {
             {queryResult.results
               .filter((item) => item.poster_path)
               .map((item, index) => (
-                <img
-                  key={index}
-                  className={styles["search-result__item"]}
-                  src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
-                  alt={item.title || "Movie Poster"}
-                />
+                <div className={styles.item} key={index}>
+                  <img
+                    className={styles["item__poster"]}
+                    src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+                    alt={item.title || "Movie Poster"}
+                  />
+                  <div>
+                    <div className={styles["item__title"]}>{item.title}</div>
+                  </div>
+                </div>
               ))}
           </div>
         )}
