@@ -8,16 +8,17 @@ export default function SearchPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [queryResult, setQueryResult] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
 
   const handleSubmit = async () => {
     setIsLoading(true);
+    setHasSearched(true);
     try {
       const result = await requestAPI(searchQuery);
       if (result.results.length === 0) {
         setQueryResult(null);
       } else {
         setQueryResult(result);
-        console.log(result);
       }
     } catch (error) {
       console.log(error);
@@ -41,8 +42,11 @@ export default function SearchPage() {
             Enter
           </button>
         </div>
-        {isLoading && <div>Loading...</div>}
-        {queryResult && queryResult.results.length > 0 ? (
+        {isLoading && <div>Loading</div>}
+        {!isLoading && hasSearched && !queryResult && (
+          <div>No results found</div>
+        )}
+        {!isLoading && queryResult && queryResult.results.length > 0 && (
           <div className={styles["search-result"]} id="search-result-id">
             {queryResult.results
               .filter((item) => item.poster_path)
@@ -55,8 +59,6 @@ export default function SearchPage() {
                 />
               ))}
           </div>
-        ) : (
-          <div>No results</div>
         )}
       </div>
     </div>
