@@ -17,12 +17,22 @@
 
 .search-wrapper {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+}
+
+.search-bar-wrapper {
+  display: flex;
   align-items: center;
   justify-content: center;
   column-gap: 8px;
 
   width: 500px;
   max-width: 500px;
+
+  margin-bottom: 48px;
 }
 
 .search-bar,
@@ -59,4 +69,24 @@
   &:hover {
     background-color: #41bba5;
   }
+}
+
+.search-result {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+
+  column-gap: 24px;
+  row-gap: 24px;
+
+  width: 100%;
+}
+
+.search-result__item {
+  border-radius: 10px;
+
+  height: 375px;
+  width: 250px;
+
+  cursor: pointer;
 }
