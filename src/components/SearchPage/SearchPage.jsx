@@ -43,9 +43,9 @@ export default function SearchPage() {
             Enter
           </button>
         </div>
-        {isLoading && <div>Loading</div>}
+        {isLoading && <div className={styles.loading}>Loading</div>}
         {!isLoading && hasSearched && !queryResult && (
-          <div>No results found</div>
+          <div className={styles["no-results"]}>No results found 😢</div>
         )}
         {!isLoading && queryResult && queryResult.results.length > 0 && (
           <div className={styles["search-result"]} id="search-result-id">
@@ -62,10 +62,12 @@ export default function SearchPage() {
               ))}
           </div>
         )}
-        <div className={styles["page-btn-wrapper"]}>
-          <button className={styles["page-btn"]}>Previous</button>
-          <button className={styles["page-btn"]}>Next</button>
-        </div>
+        {!isLoading && queryResult && (
+          <div className={styles["page-btn-wrapper"]}>
+            <button className={styles["page-btn"]}>Previous</button>
+            <button className={styles["page-btn"]}>Next</button>
+          </div>
+        )}
       </div>
     </div>
   );
