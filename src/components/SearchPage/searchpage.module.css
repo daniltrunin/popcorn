@@ -74,12 +74,14 @@
 .search-result {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr;
+  grid-template-rows: repeat(5, 1fr);
 
   column-gap: 24px;
   row-gap: 24px;
 
   width: 100%;
+
+  margin-bottom: 100px;
 }
 
 .item {
@@ -101,4 +103,32 @@
 
   height: 375px;
   width: 250px;
+}
+
+.page-btn-wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  width: 98%;
+}
+
+.page-btn {
+  border: none;
+  border-radius: 10px;
+
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+
+  padding: 20px 0;
+
+  width: 150px;
+
+  background-color: #61bfad;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: #41bba5;
+  }
 }

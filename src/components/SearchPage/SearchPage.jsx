@@ -62,6 +62,10 @@ export default function SearchPage() {
               ))}
           </div>
         )}
+        <div className={styles["page-btn-wrapper"]}>
+          <button className={styles["page-btn"]}>Previous</button>
+          <button className={styles["page-btn"]}>Next</button>
+        </div>
       </div>
     </div>
   );
