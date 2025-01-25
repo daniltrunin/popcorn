@@ -88,7 +88,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 8px;
 }
 
 .item__poster {
@@ -96,17 +95,4 @@
 
   height: 375px;
   width: 250px;
-}
-
-.item__title {
-  width: 225px;
-  max-width: 225px;
-
-  padding: 16px;
-
-  text-align: center;
-
-  background-color: #efe8d8;
-
-  border-radius: 10px;
 }

@@ -58,9 +58,6 @@ export default function SearchPage() {
                     src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
                     alt={item.title || "Movie Poster"}
                   />
-                  <div>
-                    <div className={styles["item__title"]}>{item.title}</div>
-                  </div>
                 </div>
               ))}
           </div>
