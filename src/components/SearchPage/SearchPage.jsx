@@ -4,6 +4,8 @@ import { useState } from "react";
 
 import requestAPI from "../../common/services/movies";
 
+import SearchResult from "../SearchResult/SearchResult";
+
 export default function SearchPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [queryResult, setQueryResult] = useState(null);
@@ -48,19 +50,7 @@ export default function SearchPage() {
           <div className={styles["no-results"]}>No results found 😢</div>
         )}
         {!isLoading && queryResult && queryResult.results.length > 0 && (
-          <div className={styles["search-result"]} id="search-result-id">
-            {queryResult.results
-              .filter((item) => item.poster_path)
-              .map((item, index) => (
-                <div className={styles.item} key={index}>
-                  <img
-                    className={styles["item__poster"]}
-                    src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
-                    alt={item.title || "Movie Poster"}
-                  />
-                </div>
-              ))}
-          </div>
+          <SearchResult propResult={queryResult}/>
         )}
         {!isLoading && queryResult && (
           <div className={styles["page-btn-wrapper"]}>
