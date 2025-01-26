@@ -1,0 +1,33 @@
+.search-result {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+
+  column-gap: 24px;
+  row-gap: 24px;
+
+  width: 100%;
+
+  margin-bottom: 100px;
+}
+
+.item {
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.025);
+  }
+}
+
+.item__poster {
+  border-radius: 10px;
+
+  height: 375px;
+  width: 250px;
+}

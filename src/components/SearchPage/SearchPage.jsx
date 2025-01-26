@@ -50,7 +50,7 @@ export default function SearchPage() {
           <div className={styles["no-results"]}>No results found 😢</div>
         )}
         {!isLoading && queryResult && queryResult.results.length > 0 && (
-          <SearchResult propResult={queryResult}/>
+          <SearchResult propResult={queryResult} />
         )}
         {!isLoading && queryResult && (
           <div className={styles["page-btn-wrapper"]}>

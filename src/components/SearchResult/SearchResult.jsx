@@ -1,4 +1,4 @@
-import styles from "../SearchPage/searchpage.module.css";
+import styles from "./searchresult.module.css";
 import PropTypes from "prop-types";
 
 export default function SearchResult(props) {
