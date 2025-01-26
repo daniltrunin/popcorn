@@ -80,8 +80,16 @@
 .page-btn-wrapper {
   display: flex;
   justify-content: space-between;
+  column-gap: 20px;
 
-  width: 98%;
+  width: 100%;
+}
+
+.page-btn-wrapper--only-next {
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
 }
 
 .page-btn {
@@ -99,6 +107,8 @@
   background-color: #61bfad;
 
   cursor: pointer;
+
+  flex: 1;
 
   &:hover {
     background-color: #41bba5;

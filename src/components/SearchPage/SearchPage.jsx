@@ -11,6 +11,7 @@ export default function SearchPage() {
   const [queryResult, setQueryResult] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
+  const [page, setPage] = useState(1);
 
   const handleSubmit = async () => {
     setIsLoading(true);
@@ -27,6 +28,20 @@ export default function SearchPage() {
       console.log(error);
     }
     setIsLoading(false);
+  };
+
+  const handlePageClick = (event) => {
+    if (
+      event.target.id == "next-page-id" ||
+      event.target.id == "next-page-id-ext"
+    ) {
+      setPage(Number(page) + 1);
+    } else if (event.target.id == "prev-page-id") {
+      if (Number(page) == 1) {
+        return;
+      }
+      setPage(Number(page) - 1);
+    }
   };
 
   return (
@@ -53,9 +68,34 @@ export default function SearchPage() {
           <SearchResult propResult={queryResult} />
         )}
         {!isLoading && queryResult && (
-          <div className={styles["page-btn-wrapper"]}>
-            <button className={styles["page-btn"]}>Previous</button>
-            <button className={styles["page-btn"]}>Next</button>
+          <div className={styles["page-btn-wrapper--only-next"]}>
+            {page == 1 && (
+              <button
+                id="next-page-id"
+                onClick={handlePageClick}
+                className={styles["page-btn"]}
+              >
+                Next
+              </button>
+            )}
+            {page > 1 && (
+              <div className={styles["page-btn-wrapper"]}>
+                <button
+                  id="prev-page-id"
+                  onClick={handlePageClick}
+                  className={styles["page-btn"]}
+                >
+                  Previous
+                </button>
+                <button
+                  id="next-page-id-ext"
+                  onClick={handlePageClick}
+                  className={styles["page-btn"]}
+                >
+                  Next
+                </button>
+              </div>
+            )}
           </div>
         )}
       </div>
