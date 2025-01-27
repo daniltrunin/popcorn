@@ -1,6 +1,5 @@
 import axios from "axios";
-
-const ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MDVkN2E5NWEwMDQ4NTE3NTc3MTUwZmY2NTZiODcwYSIsIm5iZiI6MTczNzYzNTQ5OS4yMTcsInN1YiI6IjY3OTIzNmFiN2FmMjM1MjZkNzQ3MDJhMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ruyQsJaYSdT3yTskcbhS_Q861fdQSXiMdDl5Fxncjk4";
+const ACCESS_TOKEN = import.meta.env.VITE_ACCESS_TOKEN
 
 const requestAPI = function (title, page = 1) {
   try {

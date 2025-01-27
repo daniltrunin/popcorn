@@ -1,9 +1,6 @@
 import styles from "./searchpage.module.css";
-
 import { useState } from "react";
-
 import requestAPI from "../../common/services/movies";
-
 import SearchResult from "../SearchResult/SearchResult";
 
 export default function SearchPage() {
