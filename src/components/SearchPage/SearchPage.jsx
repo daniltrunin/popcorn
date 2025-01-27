@@ -19,9 +19,11 @@ export default function SearchPage() {
 
     try {
       const result = await requestAPI(searchQuery, pageToRequest);
-      console.log(result);
+      /* Вывод результатов по запросу 
+      console.log(result); */
       if (result.results.length === 0) {
         setQueryResult(null);
+        setPage(1);
       } else {
         setQueryResult(result);
       }
