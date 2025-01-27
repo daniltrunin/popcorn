@@ -13,16 +13,17 @@ export default function SearchPage() {
   const [hasSearched, setHasSearched] = useState(false);
   const [page, setPage] = useState(1);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (pageToRequest) => {
     setIsLoading(true);
     setHasSearched(true);
+
     try {
-      const result = await requestAPI(searchQuery);
+      const result = await requestAPI(searchQuery, pageToRequest);
+      console.log(result);
       if (result.results.length === 0) {
         setQueryResult(null);
       } else {
         setQueryResult(result);
-        console.log(result);
       }
     } catch (error) {
       console.log(error);
@@ -31,11 +32,9 @@ export default function SearchPage() {
   };
 
   const handlePageChange = (direction) => {
-    setPage((prevPage) => {
-      if (direction === "next") return prevPage + 1;
-      if (direction === "prev" && prevPage > 1) return prevPage - 1;
-      return prevPage;
-    });
+    const newPageValue = direction === "next" ? page + 1 : page - 1;
+    setPage(newPageValue);
+    handleSubmit(newPageValue);
   };
 
   const renderPaginationButtons = () => {
@@ -76,7 +75,10 @@ export default function SearchPage() {
             className={styles["search-bar"]}
             placeholder="Lord of the rings"
           ></input>
-          <button onClick={handleSubmit} className={styles["submit-btn"]}>
+          <button
+            onClick={() => handleSubmit(1)}
+            className={styles["submit-btn"]}
+          >
             Enter
           </button>
         </div>
