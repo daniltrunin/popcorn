@@ -30,18 +30,38 @@ export default function SearchPage() {
     setIsLoading(false);
   };
 
-  const handlePageClick = (event) => {
-    if (
-      event.target.id == "next-page-id" ||
-      event.target.id == "next-page-id-ext"
-    ) {
-      setPage(Number(page) + 1);
-    } else if (event.target.id == "prev-page-id") {
-      if (Number(page) == 1) {
-        return;
-      }
-      setPage(Number(page) - 1);
-    }
+  const handlePageChange = (direction) => {
+    setPage((prevPage) => {
+      if (direction === "next") return prevPage + 1;
+      if (direction === "prev" && prevPage > 1) return prevPage - 1;
+      return prevPage;
+    });
+  };
+
+  const renderPaginationButtons = () => {
+    const isFirstPage = page === 1;
+
+    return (
+      <div className={styles["pagination-wrapper"]}>
+        <div className={styles["current-page"]}>{page}</div>
+        <div className={styles["page-btn-wrapper"]}>
+          {!isFirstPage && (
+            <button
+              onClick={() => handlePageChange("prev")}
+              className={styles["page-btn"]}
+            >
+              Previous
+            </button>
+          )}
+          <button
+            onClick={() => handlePageChange("next")}
+            className={styles["page-btn"]}
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -67,37 +87,7 @@ export default function SearchPage() {
         {!isLoading && queryResult && queryResult.results.length > 0 && (
           <SearchResult propResult={queryResult} />
         )}
-        {!isLoading && queryResult && (
-          <div className={styles["page-btn-wrapper--only-next"]}>
-            {page == 1 && (
-              <button
-                id="next-page-id"
-                onClick={handlePageClick}
-                className={styles["page-btn"]}
-              >
-                Next
-              </button>
-            )}
-            {page > 1 && (
-              <div className={styles["page-btn-wrapper"]}>
-                <button
-                  id="prev-page-id"
-                  onClick={handlePageClick}
-                  className={styles["page-btn"]}
-                >
-                  Previous
-                </button>
-                <button
-                  id="next-page-id-ext"
-                  onClick={handlePageClick}
-                  className={styles["page-btn"]}
-                >
-                  Next
-                </button>
-              </div>
-            )}
-          </div>
-        )}
+        {!isLoading && queryResult && renderPaginationButtons()}
       </div>
     </div>
   );
