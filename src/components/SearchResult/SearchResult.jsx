@@ -13,11 +13,11 @@ export default function SearchResult(props) {
     const cardId = card.id;
     try {
       const result = await requestAPIWithDetailsAndId(cardId);
-      console.log(result);
+      // console.log(result);
+      navigate(`/about/${cardId}`, { state: { cardDetails: result } });
     } catch (error) {
       console.log(error);
     }
-    navigate(`/about/${cardId}`);
   };
 
   return (

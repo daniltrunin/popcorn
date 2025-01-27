@@ -58,7 +58,7 @@
 }
 
 .submit-btn {
-  background-color: #61bfad;
+  background-color: var(--btn-color);
 
   color: #ffffff;
 
@@ -67,7 +67,7 @@
   width: 25%;
 
   &:hover {
-    background-color: #41bba5;
+    background-color: var(--hover-btn-color);
   }
 }
 

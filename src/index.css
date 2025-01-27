@@ -10,6 +10,9 @@
   --primary-color: #1b1d1c;
 
   --background-color: #f9f7e8;
+
+  --btn-color: #61bfad;
+  --hover-btn-color: #41bba5;
 }
 
 a {

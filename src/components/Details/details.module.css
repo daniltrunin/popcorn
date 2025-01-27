@@ -1,0 +1,59 @@
+.wrapper {
+  padding-top: 48px;
+
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  grid-template-rows: 1fr;
+}
+
+.sideber {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+
+  max-width: 320px;
+}
+
+.poster {
+  width: 320px;
+  height: 480px;
+
+  border-radius: 10px;
+
+  margin-top: 20px;
+}
+
+.favorites-btn {
+  border: none;
+  border-radius: 10px;
+
+  background-color: var(--btn-color);
+
+  padding: 20px 92px;
+
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Inter", sans-serif;
+  color: white;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--hover-btn-color);
+  }
+}
+
+.main-content {
+  padding-left: 127px;
+  padding-right: 165px;
+}
+
+.title {
+  margin: 0;
+
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1;
+  color: var(--primary-color);
+}
