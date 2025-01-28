@@ -107,6 +107,21 @@
   }
 }
 
+.vote-wrapper {
+  margin-bottom: 22px;
+
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+
+  cursor: pointer;
+}
+
+.vote {
+  font-size: 16px;
+  font-weight: 500;
+}
+
 .overview {
   margin-bottom: 22px;
 }

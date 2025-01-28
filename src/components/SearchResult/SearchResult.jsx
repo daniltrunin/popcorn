@@ -14,7 +14,7 @@ export default function SearchResult(props) {
     try {
       const result = await requestAPIWithDetailsAndId(cardId);
       // console.log(result);
-      navigate(`/about/${cardId}`, { state: { cardDetails: result } });
+      navigate(`/about/${cardId}`, { state: { data: result } });
     } catch (error) {
       console.log(error);
     }
