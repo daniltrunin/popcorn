@@ -45,7 +45,7 @@
 
 .main-content {
   padding-left: 127px;
-  padding-right: 165px;
+  padding-right: 25px;
 }
 
 .title {
@@ -56,4 +56,68 @@
   font-size: 48px;
   line-height: 1;
   color: var(--primary-color);
+
+  margin-bottom: 24px;
+}
+
+.tagline {
+  font-style: italic;
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.finance-wrapper {
+  margin-bottom: 22px;
+}
+
+.finance {
+  display: flex;
+  column-gap: 22px;
+}
+
+.tags {
+  display: flex;
+  column-gap: 16px;
+
+  margin-bottom: 22px;
+}
+
+.tag {
+  display: flex;
+
+  padding: 8px;
+
+  background-color: #efe8d8;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+  color: var(--primary-color);
+}
+
+.overview {
+  margin-bottom: 22px;
+}
+
+.headling {
+  font-size: 18px;
+  font-weight: 600;
+
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.description {
+  font-size: 16px;
+  color: var(--primary-color);
+
+  margin: 0;
+}
+
+.content {
+  display: flex;
+
+  font-size: 14px;
+
+  margin-bottom: 22px;
 }
