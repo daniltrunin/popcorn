@@ -64,15 +64,8 @@
   font-style: italic;
   font-size: 12px;
   opacity: 0.6;
-}
 
-.finance-wrapper {
-  margin-bottom: 22px;
-}
-
-.finance {
-  display: flex;
-  column-gap: 22px;
+  margin: 0;
 }
 
 .tags {
@@ -95,12 +88,19 @@
   color: var(--primary-color);
 }
 
+.trailer {
+  color: #e54b4b;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
 .overview {
   margin-bottom: 22px;
 }
 
 .headling {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
 
   margin: 0;
@@ -112,12 +112,5 @@
   color: var(--primary-color);
 
   margin: 0;
-}
-
-.content {
-  display: flex;
-
-  font-size: 14px;
-
-  margin-bottom: 22px;
+  margin-bottom: 12px;
 }
