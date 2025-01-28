@@ -1,13 +1,37 @@
 import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import styles from "./details.module.css";
 
 export default function Details() {
   const location = useLocation();
   const cardDetails = location.state?.cardDetails;
+  /* Отображение подробных данных об открытом фильме
   console.log(cardDetails);
+  */
+  useEffect(() => {
+    document.title = `${cardDetails.title}`;
+  });
+
   const handleTrailerClick = (id) => {
     window.open(`https://www.imdb.com/title/${id}`);
   };
+
+  function releaseDate() {
+    const date = cardDetails.release_date;
+    const [year, month, day] = date.split("-");
+    return `${day}/${month}/${year}`;
+  }
+
+  function runtime() {
+    const totalMin = cardDetails.runtime;
+    const hours = Math.floor(totalMin / 60);
+    const minutes = totalMin % 60;
+    if (hours == 0) {
+      return `${minutes}m`;
+    }
+    return `${hours}h ${minutes}m`;
+  }
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.sideber}>
@@ -21,11 +45,11 @@ export default function Details() {
       <div className={styles["main-content"]}>
         <h1 className={styles.title}>{cardDetails.title}</h1>
         <div className={styles.tags}>
-          <div className={styles.tag}>{cardDetails.release_date}</div>
+          <div className={styles.tag}>{releaseDate()}</div>
           <div className={styles.tag}>
             {cardDetails.genres.map((item) => item.name).join(", ")}
           </div>
-          <div className={styles.tag}>{cardDetails.runtime} min</div>
+          <div className={styles.tag}>{runtime()}</div>
           <div
             onClick={() => handleTrailerClick(cardDetails.imdb_id)}
             className={`${styles.tag} ${styles.trailer}`}

@@ -93,6 +93,18 @@
   font-weight: 600;
 
   cursor: pointer;
+
+  position: relative;
+
+  padding: 8px 8px 8px 26px;
+
+  &::before {
+    content: url("../../assets/icons/trailer.svg");
+
+    position: absolute;
+    top: 9px;
+    left: 8px;
+  }
 }
 
 .overview {

@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 export default function Home() {
   useEffect(() => {
-    document.title = "Home page";
+    document.title = "Popcorn";
   });
   return (
     <div>
