@@ -62,7 +62,9 @@ export default function Details() {
           className={styles["vote-wrapper"]}
         >
           <img src="../../../src/assets/icons/imdb-icon.svg" />
-          <div className={styles.vote}>{data.vote_average}/10</div>
+          <div className={styles.vote}>
+            {Math.round(data.vote_average * 10) / 10}/10
+          </div>
         </div>
         <div className={styles.overview}>
           <h2 className={styles.headling}>Overview</h2>
