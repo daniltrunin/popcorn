@@ -16,8 +16,9 @@ export default function SearchPage() {
 
     try {
       const result = await requestAPI(searchQuery, pageToRequest);
-      /* Вывод результатов по запросу 
-      console.log(result); */
+      // Вывод результатов по запросу
+      // console.log(result);
+      // console.log(result.total_pages);
       if (result.results.length === 0) {
         setQueryResult(null);
         setPage(1);
@@ -88,7 +89,10 @@ export default function SearchPage() {
         {!isLoading && queryResult && queryResult.results.length > 0 && (
           <SearchResult propResult={queryResult} />
         )}
-        {!isLoading && queryResult && renderPaginationButtons()}
+        {!isLoading &&
+          queryResult &&
+          queryResult.total_pages > 1 &&
+          renderPaginationButtons()}
       </div>
     </div>
   );
