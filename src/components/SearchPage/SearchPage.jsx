@@ -17,11 +17,14 @@ export default function SearchPage() {
     try {
       const result = await requestAPI(searchQuery, pageToRequest);
       // Вывод результатов по запросу
-      // console.log(result);
+      console.log(result);
       // console.log(result.total_pages);
+      if (pageToRequest === 1) {
+        setPage(1);
+      }
+
       if (result.results.length === 0) {
         setQueryResult(null);
-        setPage(1);
       } else {
         setQueryResult(result);
       }
@@ -38,7 +41,7 @@ export default function SearchPage() {
   };
 
   const renderPaginationButtons = () => {
-    const isFirstPage = page === 1;
+    const isFirstPage = page == 1;
 
     return (
       <div className={styles["pagination-wrapper"]}>
