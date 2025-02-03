@@ -40,7 +40,6 @@ export default function SearchResult(props) {
               src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
               alt={item.title || "Movie Poster"}
             />
-            {console.log(item.id)}
           </div>
         ))}
     </div>
