@@ -7,6 +7,9 @@ export default function Header() {
   const navigateHome = () => {
     navigate("/");
   };
+  const navigateFavorites = () => {
+    navigate("/favorites");
+  };
   const location = useLocation();
   return (
     <div className={styles.header}>
@@ -20,6 +23,14 @@ export default function Header() {
           onClick={navigateHome}
         >
           Search
+        </button>
+        <button
+          className={
+            location.pathname === "/favorites" ? styles["active-view"] : ""
+          }
+          onClick={navigateFavorites}
+        >
+          Favorites
         </button>
         <button
           className={
