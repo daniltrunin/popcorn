@@ -6,7 +6,7 @@ export default function Details() {
   const location = useLocation();
   const data = location.state?.data;
   // Отображение подробных данных об открытом фильме
-  console.log(data);
+  // console.log(data);
 
   useEffect(() => {
     document.title = `${data.title}`;

@@ -1,3 +1,7 @@
+/* 
+Вся страница (Поиск + Вывод найденных карточек)
+*/
+
 import styles from "./searchpage.module.css";
 import { useState } from "react";
 import requestAPI from "../../common/services/movies";
@@ -17,7 +21,7 @@ export default function SearchPage() {
     try {
       const result = await requestAPI(searchQuery, pageToRequest);
       // Вывод результатов по запросу
-      console.log(result);
+      // console.log(result);
       // console.log(result.total_pages);
       if (pageToRequest === 1) {
         setPage(1);

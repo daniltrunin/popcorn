@@ -1,3 +1,7 @@
+/* 
+Компонент который отрисовывает в SearchPage найденные карточки фильмов 
+*/
+
 import styles from "./searchresult.module.css";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +14,7 @@ export default function SearchResult(props) {
   const navigate = useNavigate();
 
   const renderClickedCard = async (card) => {
+    // console.log(card);
     const cardId = card.id;
     try {
       const result = await requestAPIWithDetailsAndId(cardId);
@@ -24,17 +29,18 @@ export default function SearchResult(props) {
     <div className={styles["search-result"]} id="search-result-id">
       {props.propResult.results
         .filter((item) => item.poster_path)
-        .map((item, index) => (
+        .map((item) => (
           <div
             onClick={() => renderClickedCard(item)}
             className={styles.item}
-            key={index}
+            key={item.id}
           >
             <img
               className={styles["item__poster"]}
               src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
               alt={item.title || "Movie Poster"}
             />
+            {console.log(item.id)}
           </div>
         ))}
     </div>
