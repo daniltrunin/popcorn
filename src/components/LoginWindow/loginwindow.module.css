@@ -1,0 +1,74 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 50vh;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 8px;
+
+  padding: 50px;
+
+  max-width: 35%;
+  width: 100%;
+
+  border-radius: 10px;
+}
+
+.input {
+  border: none;
+
+  font-family: "Inter", sans-serif;
+
+  padding: 10px;
+
+  border-radius: 10px;
+
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.password {
+  margin-bottom: 24px;
+}
+
+.button {
+  border: none;
+
+  font-family: "Inter", sans-serif;
+  color: white;
+
+  padding: 10px;
+
+  border-radius: 10px;
+
+  width: 100%;
+
+  background-color: var(--btn-color);
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+  &:hover {
+    background-color: var(--hover-btn-color);
+  }
+}
+
+.register {
+    background-color: brown;
+
+    &:hover {
+    background-color: rgba(165, 42, 42, 0.834);
+    }
+}

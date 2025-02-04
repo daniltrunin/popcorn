@@ -1,3 +1,8 @@
 .app {
   padding: 24px 165px 77px 165px;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 100vh;
 }

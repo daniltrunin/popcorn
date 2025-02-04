@@ -10,6 +10,9 @@ export default function Header() {
   const navigateFavorites = () => {
     navigate("/favorites");
   };
+  const navigateProfile = () => {
+    navigate("/profile");
+  };
   const location = useLocation();
   return (
     <div className={styles.header}>
@@ -36,7 +39,7 @@ export default function Header() {
           className={
             location.pathname === "/profile" ? styles["active-view"] : ""
           }
-          onClick={navigateHome}
+          onClick={navigateProfile}
         >
           Profile
         </button>
