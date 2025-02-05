@@ -1,21 +1,6 @@
 import styles from "./loginwindow.module.css";
 import { useState } from "react";
-
-function sendDataToLogin(username, password) {
-  const obj = {
-    user: username,
-    pass: password,
-  };
-  console.log(obj);
-}
-
-function sendDataToRegister(username, password) {
-  const obj = {
-    user: username,
-    pass: password,
-  };
-  console.log(obj);
-}
+import sendDataToAuth from "../../common/services/login";
 
 export default function LoginWindow() {
   const [username, setUsername] = useState("");
@@ -39,14 +24,14 @@ export default function LoginWindow() {
         <button
           className={`${styles.button} ${styles.login}`}
           type="submit"
-          onClick={() => sendDataToLogin(username, password)}
+          onClick={() => sendDataToAuth(username, password, "login")}
         >
           Login
         </button>
         <button
           className={`${styles.button} ${styles.register}`}
           type="submit"
-          onClick={() => sendDataToRegister(username, password)}
+          onClick={() => sendDataToAuth(username, password, "reg")}
         >
           Register
         </button>
