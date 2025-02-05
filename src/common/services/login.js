@@ -19,7 +19,7 @@ class User {
             });
             console.log("Register successful:", response.data);
         } catch (e) {
-            console.error(e)
+            console.error(e.response.data)
         }
     }
 }
@@ -40,6 +40,7 @@ async function loginUser(username, password) {
         });
         console.log("Login successful:", response.data);
     } catch (e) {
+        console.log("Неверный логин или пароль")
         console.error(e)
     }
 }
