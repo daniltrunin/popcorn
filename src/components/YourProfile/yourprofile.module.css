@@ -20,7 +20,8 @@
 }
 
 .logout-btn {
-  max-width: 150px;
+  max-width: 200px;
+  width: 200px;
 
   border: none;
   border-radius: 10px;

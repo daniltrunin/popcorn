@@ -4,7 +4,7 @@ import LoginWindow from "../../components/LoginWindow/LoginWindow";
 import YourProfile from "../../components/YourProfile/YourProfile";
 
 export default function Profile() {
-  const [userData, setUserData] = useState(null); // Состояние для данных пользователя
+  const [userData, setUserData] = useState(null); 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -29,9 +29,10 @@ export default function Profile() {
     setUserData(null);
     setIsLoggedIn(false);
 
-    // Удаляем данные из localStorage
     localStorage.removeItem("userData");
     localStorage.removeItem("isLoggedIn");
+
+    alert("You logged out");
   };
 
   useEffect(() => {
@@ -41,9 +42,9 @@ export default function Profile() {
     <div>
       <Header />
       {userData && isLoggedIn ? (
-        <YourProfile userData={userData} onLogOut={handleLogout} /> // Показываем профиль, если данные есть
+        <YourProfile userData={userData} onLogOut={handleLogout} />
       ) : (
-        <LoginWindow onLoginSuccess={handleLoginSuccess} /> // Показываем форму логина
+        <LoginWindow onLoginSuccess={handleLoginSuccess} />
       )}
     </div>
   );
