@@ -1,9 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 100vh;
+  max-height: 90vh;
+}
+
 .header {
   display: flex;
   align-items: center;
   column-gap: 14px;
+
+  margin-top: 24px;
 }
 
 .profile-picture {
   max-width: 50px;
+}
+
+.logout-btn {
+  max-width: 150px;
+
+  border: none;
+  border-radius: 10px;
+
+  background-color: rgb(253, 57, 57);
+
+  padding: 12px;
+
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: white;
+
+  cursor: pointer;
+
+  align-self: flex-end;
 }

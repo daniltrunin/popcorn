@@ -11,6 +11,7 @@ export default function LoginWindow({ onLoginSuccess }) {
     const data = await sendDataToAuth(username, password, "login");
     if (data) {
       onLoginSuccess(data); // Вызываем коллбек и передаём данные
+      alert("Succesfully logged in");
     } else {
       alert("Invalid credentials. Please try again."); // Обработка ошибки
     }

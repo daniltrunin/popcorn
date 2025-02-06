@@ -5,9 +5,33 @@ import YourProfile from "../../components/YourProfile/YourProfile";
 
 export default function Profile() {
   const [userData, setUserData] = useState(null); // Состояние для данных пользователя
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const storedUserData = localStorage.getItem("userData");
+    const loggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+    if (storedUserData && loggedIn) {
+      setUserData(JSON.parse(storedUserData));
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   const handleLoginSuccess = (data) => {
-    setUserData(data); // Сохраняем данные пользователя после успешного логина
+    setUserData(data);
+    setIsLoggedIn(true);
+
+    localStorage.setItem("userData", JSON.stringify(data));
+    localStorage.setItem("isLoggedIn", "true");
+  };
+
+  const handleLogout = () => {
+    setUserData(null);
+    setIsLoggedIn(false);
+
+    // Удаляем данные из localStorage
+    localStorage.removeItem("userData");
+    localStorage.removeItem("isLoggedIn");
   };
 
   useEffect(() => {
@@ -16,8 +40,8 @@ export default function Profile() {
   return (
     <div>
       <Header />
-      {userData ? (
-        <YourProfile userData={userData} /> // Показываем профиль, если данные есть
+      {userData && isLoggedIn ? (
+        <YourProfile userData={userData} onLogOut={handleLogout} /> // Показываем профиль, если данные есть
       ) : (
         <LoginWindow onLoginSuccess={handleLoginSuccess} /> // Показываем форму логина
       )}
