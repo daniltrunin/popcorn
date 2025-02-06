@@ -39,15 +39,14 @@ async function loginUser(username, password) {
             password,
         });
         console.log("Login successful:", response.data);
+        return response.config.data;
     } catch (e) {
         console.log("Неверный логин или пароль")
         console.error(e)
     }
 }
 
-
-
-export default function sendDataToAuth(username, password, type) {
+export default async function sendDataToAuth(username, password, type) {
     if (!username || !password) {
         alert("Username and password are required!");
         return;
@@ -59,6 +58,7 @@ export default function sendDataToAuth(username, password, type) {
     }
 
     if (type === "login") {
-        loginUser(username, password);
+        const res = await loginUser(username, password);
+        return res
     }
 }

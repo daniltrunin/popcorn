@@ -1,0 +1,9 @@
+.header {
+  display: flex;
+  align-items: center;
+  column-gap: 14px;
+}
+
+.profile-picture {
+  max-width: 50px;
+}
