@@ -6,18 +6,15 @@ import styles from "./favoritescards.module.css";
 import { useState } from "react";
 import SearchResult from "../SearchResult/SearchResult";
 
-let initialFavorites = [
-  {
-    id: "330459",
-    name: "Star wars",
-    poster_path: `https://image.tmdb.org/t/p/w500//i0yw1mFbB7sNGHCs7EXZPzFkdA1.jpg`,
-  },
-  {
-    id: "120",
-    name: "Lord of the rings",
-    poster_path: `https://image.tmdb.org/t/p/w500//6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg`,
-  },
-];
+// let initialFavorites = [
+//   {
+//     id: "330459",
+//     title: "Star wars",
+//     poster_path: `https://image.tmdb.org/t/p/w500//i0yw1mFbB7sNGHCs7EXZPzFkdA1.jpg`,
+//   },
+// ];
+
+let initialFavorites = [];
 
 export default function FavoritesCards() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -27,7 +24,7 @@ export default function FavoritesCards() {
     setSearchQuery(query);
 
     const filteredFavorites = initialFavorites.filter((movie) =>
-      movie.name.toLowerCase().includes(query)
+      movie.title.toLowerCase().includes(query)
     );
 
     setFavoritesStorage(filteredFavorites);

@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import styles from "./details.module.css";
+import sendMoviesData from "../../common/services/add_movie";
 
 export default function Details() {
   const location = useLocation();
@@ -32,6 +33,27 @@ export default function Details() {
     return `${hours}h ${minutes}m`;
   }
 
+  function toggleFavorites() {
+    const obj = {
+      id: data.id,
+      title: data.title,
+      poster_path: data.poster_path,
+    };
+
+    const userStr = localStorage.getItem("userData");
+    const userStr2 = JSON.parse(userStr);
+    const userJSON = JSON.parse(userStr2);
+    const user = {
+      username: userJSON.username,
+      password: userJSON.password,
+    };
+    sendMoviesData(obj, user).then((updatedMovies) => {
+      if (updatedMovies) {
+        console.log("Favorites updated:", updatedMovies);
+      }
+    });
+  }
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.sideber}>
@@ -40,7 +62,12 @@ export default function Details() {
           src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`}
           alt={data.title || "Movie Poster"}
         />
-        <button className={styles["favorites-btn"]}>Add to favorites</button>
+        <button
+          onClick={() => toggleFavorites()}
+          className={styles["favorites-btn"]}
+        >
+          Add to favorites
+        </button>
       </div>
       <div className={styles["main-content"]}>
         <h1 className={styles.title}>{data.title}</h1>
