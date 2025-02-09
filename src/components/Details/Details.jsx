@@ -34,6 +34,7 @@ export default function Details() {
   }
 
   function toggleFavorites() {
+    /* server request */
     const obj = {
       id: data.id,
       title: data.title,
@@ -52,6 +53,16 @@ export default function Details() {
         console.log("Favorites updated:", updatedMovies);
       }
     });
+
+    /* css toggle */
+    const btn = document.getElementById("favorites-btn-id");
+    if (btn.textContent == "Add to favorites") {
+      btn.classList.add(`${styles.active}`);
+      btn.textContent = "Remove from favorites";
+    } else {
+      btn.classList.remove(`${styles.active}`);
+      btn.textContent = "Add to favorites";
+    }
   }
 
   return (
@@ -65,6 +76,7 @@ export default function Details() {
         <button
           onClick={() => toggleFavorites()}
           className={styles["favorites-btn"]}
+          id="favorites-btn-id"
         >
           Add to favorites
         </button>

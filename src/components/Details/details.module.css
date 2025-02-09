@@ -23,13 +23,19 @@
   margin-top: 20px;
 }
 
+.favorites-btn.active {
+  background-color: rgb(246, 64, 64) !important;
+
+  &:hover {
+    background-color: rgb(249, 80, 80) !important;
+  }
+}
+
 .favorites-btn {
   border: none;
   border-radius: 10px;
 
   background-color: var(--btn-color);
-
-  padding: 20px 92px;
 
   font-size: 16px;
   font-weight: 500;
@@ -37,6 +43,10 @@
   color: white;
 
   cursor: pointer;
+
+  width: 320px;
+  height: 59px;
+  max-height: 59px;
 
   &:hover {
     background-color: var(--hover-btn-color);
