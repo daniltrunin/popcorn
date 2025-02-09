@@ -7,14 +7,6 @@ import { useState } from "react";
 import SearchResult from "../SearchResult/SearchResult";
 import fetchMoviesData from "../../common/services/receive_movies";
 
-// let initialFavorites = [
-//   {
-//     id: "330459",
-//     title: "Star wars",
-//     poster_path: `https://image.tmdb.org/t/p/w500//i0yw1mFbB7sNGHCs7EXZPzFkdA1.jpg`,
-//   },
-// ];
-
 async function getData() {
   const userStr = localStorage.getItem("userData");
   const userStr2 = JSON.parse(userStr);

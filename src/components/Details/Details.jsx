@@ -1,9 +1,11 @@
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from "./details.module.css";
 import sendMoviesData from "../../common/services/add_movie";
+import fetchMoviesData from "../../common/services/receive_movies";
 
 export default function Details() {
+  const [isFavorite, setIsFavorite] = useState(false);
   const location = useLocation();
   const data = location.state?.data;
   // Отображение подробных данных об открытом фильме
@@ -39,6 +41,7 @@ export default function Details() {
       id: data.id,
       title: data.title,
       poster_path: data.poster_path,
+      isAdded: true,
     };
 
     const userStr = localStorage.getItem("userData");
@@ -65,6 +68,35 @@ export default function Details() {
     }
   }
 
+  async function getData() {
+    const userStr = localStorage.getItem("userData");
+    const userStr2 = JSON.parse(userStr);
+    const userJSON = JSON.parse(userStr2);
+    const user = {
+      username: userJSON.username,
+      password: userJSON.password,
+    };
+    const movies = await fetchMoviesData(user);
+    return movies;
+  }
+
+  let initialFavorites = [];
+
+  async function initializeFavorites() {
+    const moviesFetched = await getData();
+    initialFavorites = moviesFetched;
+
+    const isAdded = initialFavorites.find((movie) => movie.id == data.id);
+    console.log(isAdded);
+    if (isAdded) {
+      setIsFavorite(true);
+    } else if (isAdded == undefined) {
+      setIsFavorite(false);
+    }
+  }
+
+  initializeFavorites();
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.sideber}>
@@ -73,13 +105,23 @@ export default function Details() {
           src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`}
           alt={data.title || "Movie Poster"}
         />
-        <button
-          onClick={() => toggleFavorites()}
-          className={styles["favorites-btn"]}
-          id="favorites-btn-id"
-        >
-          Add to favorites
-        </button>
+        {isFavorite ? (
+          <button
+            onClick={() => toggleFavorites()}
+            className={[`${styles["favorites-btn"]} ${styles.active}`]}
+            id="favorites-btn-id"
+          >
+            Remove from favorites
+          </button>
+        ) : (
+          <button
+            onClick={() => toggleFavorites()}
+            className={styles["favorites-btn"]}
+            id="favorites-btn-id"
+          >
+            Add to favorites
+          </button>
+        )}
       </div>
       <div className={styles["main-content"]}>
         <h1 className={styles.title}>{data.title}</h1>

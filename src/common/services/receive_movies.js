@@ -7,7 +7,7 @@ export default async function fetchMoviesData(user) {
             password: user.password,
         });
 
-        console.log("Favorites fetched:", response.data.movies); // Лог избранных фильмов
+        // console.log("Favorites fetched:", response.data.movies); // Лог избранных фильмов
         return response.data.movies; // Возвращаем массив фильмов
     } catch (error) {
         console.error("Error fetching favorites:", error.response?.data || error.message);
