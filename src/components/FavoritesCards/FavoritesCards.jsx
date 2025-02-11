@@ -3,7 +3,7 @@
 */
 
 import styles from "./favoritescards.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchResult from "../SearchResult/SearchResult";
 import fetchMoviesData from "../../common/services/receive_movies";
 
@@ -19,18 +19,20 @@ async function getData() {
   return movies;
 }
 
-let initialFavorites = [];
-
-async function initializeFavorites() {
-  const moviesFetched = await getData();
-  initialFavorites = moviesFetched;
-}
-
-initializeFavorites();
-
 export default function FavoritesCards() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [favoritesStorage, setFavoritesStorage] = useState(initialFavorites);
+  const [favoritesStorage, setFavoritesStorage] = useState([]);
+  const [initialFavorites, setInitialFavorites] = useState([]);
+
+  useEffect(() => {
+    async function initializeFavorites() {
+      const moviesFetched = await getData();
+      setInitialFavorites(moviesFetched);
+      setFavoritesStorage(moviesFetched);
+    }
+    initializeFavorites();
+  }, []);
+
   const handleInputChange = (event) => {
     const query = event.target.value.toLowerCase();
     setSearchQuery(query);
