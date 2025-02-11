@@ -2,18 +2,25 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import styles from "./details.module.css";
 import sendMoviesData from "../../common/services/add_movie";
-import fetchMoviesData from "../../common/services/receive_movies";
+import runtime from "../../common/services/runtime";
+import getData from "../../common/services/get_user_data_from_localstorage";
 
 export default function Details() {
   const [isFavorite, setIsFavorite] = useState(false);
   const location = useLocation();
   const data = location.state?.data;
-  // Отображение подробных данных об открытом фильме
-  // console.log(data);
 
   useEffect(() => {
     document.title = `${data.title}`;
-  });
+  }, [data.title]);
+  useEffect(() => {
+    async function initializeFavorites() {
+      const moviesFetched = await getData();
+      const isAdded = moviesFetched.find((movie) => movie.id == data.id);
+      setIsFavorite(!!isAdded);
+    }
+    initializeFavorites();
+  }, [data.id]);
 
   const handleMovieClick = (id) => {
     window.open(`https://www.imdb.com/title/${id}`);
@@ -25,23 +32,13 @@ export default function Details() {
     return `${day}/${month}/${year}`;
   }
 
-  function runtime() {
-    const totalMin = data.runtime;
-    const hours = Math.floor(totalMin / 60);
-    const minutes = totalMin % 60;
-    if (hours == 0) {
-      return `${minutes}m`;
-    }
-    return `${hours}h ${minutes}m`;
-  }
-
   function toggleFavorites() {
     /* server request */
     const obj = {
       id: data.id,
       title: data.title,
       poster_path: data.poster_path,
-      isAdded: true,
+      isAdded: !isFavorite,
     };
 
     const userStr = localStorage.getItem("userData");
@@ -56,6 +53,10 @@ export default function Details() {
         console.log("Favorites updated:", updatedMovies);
       }
     });
+    /* 
+    Написать if, если updatedMovies возвращает объект, в котором есть фильм, 
+    на который я нажал, то он отправляет другой запрос, который удаляет этот фильм из БД пользователя
+    */
 
     /* css toggle */
     const btn = document.getElementById("favorites-btn-id");
@@ -67,35 +68,6 @@ export default function Details() {
       btn.textContent = "Add to favorites";
     }
   }
-
-  async function getData() {
-    const userStr = localStorage.getItem("userData");
-    const userStr2 = JSON.parse(userStr);
-    const userJSON = JSON.parse(userStr2);
-    const user = {
-      username: userJSON.username,
-      password: userJSON.password,
-    };
-    const movies = await fetchMoviesData(user);
-    return movies;
-  }
-
-  let initialFavorites = [];
-
-  async function initializeFavorites() {
-    const moviesFetched = await getData();
-    initialFavorites = moviesFetched;
-
-    const isAdded = initialFavorites.find((movie) => movie.id == data.id);
-    console.log(isAdded);
-    if (isAdded) {
-      setIsFavorite(true);
-    } else if (isAdded == undefined) {
-      setIsFavorite(false);
-    }
-  }
-
-  initializeFavorites();
 
   return (
     <div className={styles.wrapper}>
@@ -130,7 +102,7 @@ export default function Details() {
           <div className={styles.tag}>
             {data.genres.map((item) => item.name).join(", ")}
           </div>
-          <div className={styles.tag}>{runtime()}</div>
+          <div className={styles.tag}>{runtime(data)}</div>
           <div
             onClick={() => handleMovieClick(data.imdb_id)}
             className={`${styles.tag} ${styles.trailer}`}
