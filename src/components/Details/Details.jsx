@@ -2,6 +2,8 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import styles from "./details.module.css";
 import sendMoviesData from "../../common/services/add_movie";
+import sendMoviesDataToRemove from "../../common/services/remove_movie";
+import fetchMoviesData from "../../common/services/receive_movies";
 import runtime from "../../common/services/runtime";
 import getData from "../../common/services/get_user_data_from_localstorage";
 
@@ -32,7 +34,7 @@ export default function Details() {
     return `${day}/${month}/${year}`;
   }
 
-  function toggleFavorites() {
+  async function toggleFavorites() {
     /* server request */
     const obj = {
       id: data.id,
@@ -48,15 +50,19 @@ export default function Details() {
       username: userJSON.username,
       password: userJSON.password,
     };
+
+    const moviesFetched = await fetchMoviesData(user);
+
     sendMoviesData(obj, user).then((updatedMovies) => {
       if (updatedMovies) {
-        console.log("Favorites updated:", updatedMovies);
+        // console.log("Favorites updated:", updatedMovies);
+        if (moviesFetched.find((movie) => movie.id == data.id)) {
+          sendMoviesDataToRemove(data.id, user);
+        } else {
+          return;
+        }
       }
     });
-    /* 
-    Написать if, если updatedMovies возвращает объект, в котором есть фильм, 
-    на который я нажал, то он отправляет другой запрос, который удаляет этот фильм из БД пользователя
-    */
 
     /* css toggle */
     const btn = document.getElementById("favorites-btn-id");
