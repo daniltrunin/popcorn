@@ -6,15 +6,10 @@ import styles from "./favoritescards.module.css";
 import { useState, useEffect } from "react";
 import SearchResult from "../SearchResult/SearchResult";
 import fetchMoviesData from "../../common/services/receive_movies";
+import getUserFromLocalStorage from "../../common/services/get_user_from_localstorage";
 
 async function getData() {
-  const userStr = localStorage.getItem("userData");
-  const userStr2 = JSON.parse(userStr);
-  const userJSON = JSON.parse(userStr2);
-  const user = {
-    username: userJSON.username,
-    password: userJSON.password,
-  };
+  const user = await getUserFromLocalStorage();
   const movies = await fetchMoviesData(user);
   return movies;
 }
