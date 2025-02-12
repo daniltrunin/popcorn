@@ -1,7 +1,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
 
   height: 100vh;
   max-height: 90vh;
@@ -20,8 +21,8 @@
 }
 
 .logout-btn {
-  max-width: 200px;
-  width: 200px;
+  max-width: 25%;
+  width: 25%;
 
   border: none;
   border-radius: 10px;
@@ -36,5 +37,7 @@
 
   cursor: pointer;
 
-  align-self: flex-end;
+  &:hover {
+    background-color: rgb(253, 74, 74);
+  }
 }

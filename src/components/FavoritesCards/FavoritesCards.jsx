@@ -48,7 +48,7 @@ export default function FavoritesCards() {
             onChange={handleInputChange}
             type="text"
             className={styles["search-bar"]}
-            placeholder="Lord of the rings"
+            placeholder="Type a name of a movie"
           ></input>
         </div>
         {favoritesStorage && favoritesStorage.length > 0 ? (

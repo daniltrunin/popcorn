@@ -80,7 +80,7 @@ export default function SearchPage() {
             onChange={(e) => setSearchQuery(e.target.value)}
             type="text"
             className={styles["search-bar"]}
-            placeholder="Lord of the rings"
+            placeholder="Type a name of a movie"
           ></input>
           <button
             onClick={() => handleSubmit(1)}
