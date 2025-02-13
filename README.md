@@ -7,7 +7,7 @@
 </h1>
 
 <h4 align="center">A movie database application based on <a href="https://react.dev/" target="_blank">React</a>.</h4>
-<h4 align="center">Created by frontend developer from Orenburg, Russia<a href="https://github.com/Lovelymercedanet" target="_blank">Daniil</a>.</h4>
+<h4 align="center">Created by frontend developer from Orenburg, Russia — <a href="https://github.com/Lovelymercedanet" target="_blank">Daniil</a>.</h4>
 
 <p align="center">
     <a href="https://t.me/shoutoutbelgium">
@@ -36,7 +36,7 @@
 - Filter movies based on its name in the Favorites section.
 
 > [!IMPORTANT]
-> Application still developing. There is a features currently are not added, but they will be
+> Application still developing. There is a features currently are not added, but they will be.
 
 ## Techologies
 
@@ -70,9 +70,10 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 $ git clone https://github.com/Lovelymercedanet/popcorn.git
 
 # Install dependencies
-$ npm install
+$ npm install axios
 
-# Register on TMDB, create your Acces Token, then create an .env file in the projects directory and put there your token (VITE_ACCESS_TOKEN=<your_token_here>)
+# Register on TMDB, create your Acces Token.
+# Then create an .env file in the projects directory and put there your token (VITE_ACCESS_TOKEN=<your_token_here>)
 
 # Run the app
 $ npm start
@@ -83,8 +84,8 @@ $ npm start
 
 ## Related
 
-[TMDB](https://developer.themoviedb.org/docs/getting-started) - I got The Movie Database (TMDB) for this project.
-[MONGODB](https://developer.themoviedb.org/docs/getting-started) - I have created my own cluster using MongoDB Atlas to store users and their data.
+- [TMDB](https://developer.themoviedb.org/docs/getting-started) - I got The Movie Database (TMDB) for this project.
+- [MONGODB](https://developer.themoviedb.org/docs/getting-started) - I have created my own cluster using MongoDB Atlas to store users and their data.
 
 ## You may also like...
 
@@ -94,5 +95,5 @@ $ npm start
 
 ---
 
-> GitHub [@amitmerchant1990](https://github.com/lovelymercedanet) &nbsp;&middot;&nbsp;
-> Telegram [@amit_merchant](https://t.me/shoutoutbelgium)
+> GitHub [@Lovelymercedanet](https://github.com/lovelymercedanet) &nbsp;&middot;&nbsp;
+> Telegram [@shoutoutbelgium](https://t.me/shoutoutbelgium)
