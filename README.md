@@ -6,8 +6,8 @@
   <br>
 </h1>
 
-<h4 align="center">A movie database application based on <a href="https://react.dev/" target="_blank">React</a>.</h4>
-<h4 align="center">Created by frontend developer from Orenburg, Russia — <a href="https://github.com/Lovelymercedanet" target="_blank">Daniil</a>.</h4>
+<h4 align="center">A movie database application based on <a href="https://react.dev/" target="_blank">React</a></h4>
+<h4 align="center">Created by frontend developer from Orenburg, Russia — <a href="https://github.com/Lovelymercedanet" target="_blank">Daniil</a></h4>
 
 <p align="center">
     <a href="https://t.me/shoutoutbelgium">
