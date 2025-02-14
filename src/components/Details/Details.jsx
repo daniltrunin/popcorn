@@ -7,6 +7,7 @@ import fetchMoviesData from "../../common/services/receive_movies";
 import runtime from "../../common/services/runtime";
 import getData from "../../common/services/get_user_data_from_localstorage";
 import getUserFromLocalStorage from "../../common/services/get_user_from_localstorage";
+import imdbicon from "../../../src/assets/icons/imdb-icon.svg";
 
 export default function Details() {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -115,7 +116,7 @@ export default function Details() {
           onClick={() => handleMovieClick(data.imdb_id)}
           className={styles["vote-wrapper"]}
         >
-          <img src="../../../src/assets/icons/imdb-icon.svg" />
+          <img src={imdbicon} />
           <div className={styles.vote}>
             {Math.round(data.vote_average * 10) / 10}/10
           </div>
