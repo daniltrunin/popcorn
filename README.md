@@ -3,6 +3,7 @@
   <a href=""><img src="./src/assets/icons/popcorn.png" alt="Popcorn" width="200"></a>
   <br>
   Popcorn
+  <a href="https://popcorn-danil.netlify.app/">Click here to open</a>
   <br>
 </h1>
 
