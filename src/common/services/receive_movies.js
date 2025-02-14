@@ -1,8 +1,9 @@
 import axios from "axios";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default async function fetchMoviesData(user) {
     try {
-        const response = await axios.post("http://localhost:5000/api/get-favorites", {
+        const response = await axios.post(`${API_URL}/api/get-favorites`, {
             username: user.username,
             password: user.password,
         });

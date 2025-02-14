@@ -1,4 +1,5 @@
 import axios from "axios";
+const API_URL = import.meta.env.VITE_API_URL;
 
 class User {
     constructor(username, password) {
@@ -13,7 +14,7 @@ class User {
         }
 
         try {
-            const response = await axios.post("http://localhost:5000/auth/register", {
+            const response = await axios.post(`${API_URL}/auth/register`, {
                 username: this.username,
                 password: this.password,
             });
@@ -34,7 +35,7 @@ async function loginUser(username, password) {
     password.trim();
 
     try {
-        const response = await axios.post("http://localhost:5000/auth/login", {
+        const response = await axios.post(`${API_URL}/auth/login`, {
             username,
             password,
         });

@@ -1,8 +1,9 @@
 import axios from "axios";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default async function sendMoviesDataToRemove(movieId, user) {
     try {
-        const response = await axios.post("http://localhost:5000/api/remove-favorite", {
+        const response = await axios.post(`${API_URL}/api/remove-favorite`, {
             username: user.username,
             movieId,
         });

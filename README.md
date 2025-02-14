@@ -37,6 +37,7 @@
 
 > [!IMPORTANT]
 > Application still developing. There is a features currently are not added, but they will be.
+> Free instance on the web service will spin down with inactivity, which can delay requests by 50 seconds or more.
 
 ## Techologies
 
