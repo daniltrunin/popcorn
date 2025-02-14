@@ -3,12 +3,12 @@
   <a href=""><img src="./src/assets/icons/popcorn.png" alt="Popcorn" width="200"></a>
   <br>
   Popcorn
-  <a href="https://popcorn-danil.netlify.app/">Click here to open</a>
   <br>
 </h1>
 
 <h4 align="center">A movie database application based on <a href="https://react.dev/" target="_blank">React</a></h4>
 <h4 align="center">Created by frontend developer from Orenburg, Russia — <a href="https://github.com/Lovelymercedanet" target="_blank">Daniil</a></h4>
+<h4 href="https://popcorn-danil.netlify.app/" align="center">Click here to open the application</h4>
 
 <p align="center">
     <a href="https://t.me/shoutoutbelgium">
