@@ -1,4 +1,5 @@
 import styles from "./header.module.css";
+import logo from "../../../src/assets/icons/popcorn.png";
 
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -18,7 +19,7 @@ export default function Header() {
     <div className={styles.header}>
       <div className={styles.logo} onClick={navigateHome}>
         Popcorn
-        <img src="../../../src/assets/icons/popcorn.png" alt="Logo" />
+        <img src={logo} alt="Logo" />
       </div>
       <nav className={styles.nav}>
         <button
