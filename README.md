@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href=""><img src="./src/assets/icons/popcorn.png" alt="Popcorn" width="200"></a>
+  <a><img src="./src/assets/icons/popcorn.png" alt="Popcorn" width="100"></a>
   <br>
   Popcorn
   <br>
