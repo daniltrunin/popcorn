@@ -10,6 +10,12 @@
 <h4 align="center">Created by frontend developer from Orenburg, Russia — <a href="https://github.com/Lovelymercedanet" target="_blank">Daniil</a></h4>
 <h4 align="center">Click <a href="https://popcorn-danil.netlify.app/">here</a> to open the application</h4>
 
+> [!WARNING]  
+> Movie search won't work from a Russian IP address, you need to enable VPN. This is caused by the TMDB owners
+
+> [!IMPORTANT]
+> Server requests are not immediate, this is caused by the limitations of the web-service hosting. Give it some time.
+
 <p align="center">
     <a href="https://t.me/shoutoutbelgium">
     <img src="https://img.shields.io/badge/Telegram-7ec8e3">
@@ -38,7 +44,6 @@
 
 > [!IMPORTANT]
 > Application still developing. There is a features currently are not added, but they will be.
-> Free instance on the web service will spin down with inactivity, which can delay requests by 50 seconds or more.
 
 ## Techologies
 
