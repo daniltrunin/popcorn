@@ -10,7 +10,6 @@
 <h4 align="center">Created by frontend developer from Orenburg, Russia — <a href="https://github.com/daniltrunin" target="_blank">Daniil</a></h4>
 <h4 align="center">Click <a href="https://popcorn-danil.netlify.app/">here</a> to open the application</h4>
 <h4 align="center">Client hosted on <a href="https://netlify.com/">Netlify</a>; Server hosted on <a href="https://render.com/">Render</a></h4>
-[![Netlify Status](https://api.netlify.com/api/v1/badges/8c55cfda-d944-4588-8fd5-b3c720963ddf/deploy-status)](https://app.netlify.com/sites/popcorn-danil/deploys)
 
 > [!WARNING]  
 > Movie search won't work from a Russian IP address, you need to enable VPN. This is caused by the TMDB owners
