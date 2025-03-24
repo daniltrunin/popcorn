@@ -9,6 +9,7 @@
 <h4 align="center">A movie database application based on <a href="https://react.dev/" target="_blank">React</a></h4>
 <h4 align="center">Created by frontend developer from Orenburg, Russia — <a href="https://github.com/daniltrunin" target="_blank">Daniil</a></h4>
 <h4 align="center">Click <a href="https://popcorn-danil.netlify.app/">here</a> to open the application</h4>
+<h4 align="center">Client hosted on <a href="https://netlify.com/">Netlify</a>; Server hosted on <a href="https://render.com/">Render</a></h4>
 
 > [!WARNING]  
 > Movie search won't work from a Russian IP address, you need to enable VPN. This is caused by the TMDB owners
