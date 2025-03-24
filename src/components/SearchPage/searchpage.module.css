@@ -15,6 +15,15 @@
   margin-bottom: 20px;
 }
 
+@media (max-width: 999px) {
+  .headling {
+    font-size: 40px;
+  }
+  .search-bar-wrapper {
+    width: 300px !important;
+  }
+}
+
 .search-wrapper {
   display: flex;
   flex-direction: column;

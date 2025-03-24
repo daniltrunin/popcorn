@@ -3,12 +3,82 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr;
 
+  justify-content: center;
+
   column-gap: 24px;
   row-gap: 24px;
 
   width: 100%;
 
   margin-bottom: 48px;
+}
+
+@media (min-width: 2560px) {
+  .search-result {
+    grid-template-columns: repeat(7, 1fr) !important;
+  }
+}
+
+@media (min-width: 1920px) {
+  .search-result {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 1439px) {
+  .search-result {
+    grid-template-columns: repeat(3, 1fr);
+
+    column-gap: 0px;
+
+    width: 90%;
+  }
+}
+
+@media (max-width: 1279px) {
+  .search-result {
+    grid-template-columns: repeat(3, 1fr);
+
+    column-gap: 0px;
+
+    width: 90%;
+  }
+}
+
+@media (max-width: 1240px) {
+  .search-result {
+    grid-template-columns: repeat(3, 1fr);
+
+    column-gap: 16px;
+
+    width: 100%;
+  }
+}
+
+@media (max-width: 1130px) {
+  .search-result {
+    grid-template-columns: repeat(3, 1fr);
+
+    column-gap: 16px;
+
+    width: 100%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .search-result {
+    grid-template-columns: repeat(2, 1fr);
+
+    column-gap: 16px;
+
+    width: 80%;
+  }
+}
+
+@media (max-width: 800px) {
+  .search-result {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .item {

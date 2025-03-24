@@ -116,7 +116,7 @@ export default function Details() {
           onClick={() => handleMovieClick(data.imdb_id)}
           className={styles["vote-wrapper"]}
         >
-          <img src={imdbicon} />
+          <img className={styles.imdb} src={imdbicon} />
           <div className={styles.vote}>
             {Math.round(data.vote_average * 10) / 10}/10
           </div>

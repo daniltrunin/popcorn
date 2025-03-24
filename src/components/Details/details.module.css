@@ -85,6 +85,96 @@
   margin-bottom: 22px;
 }
 
+@media (max-width: 1280px) {
+  .wrapper {
+    grid-template-columns: 1fr 1fr;
+
+    max-width: 670px;
+  }
+  .main-content {
+    padding-left: 24px;
+  }
+  .title {
+    font-size: 32px;
+  }
+  .tag {
+    font-size: 12px !important;
+  }
+  .vote {
+    font-size: 12px !important;
+  }
+  .headling {
+    font-size: 16px !important;
+  }
+  .description {
+    font-size: 12px !important;
+  }
+  .poster {
+    width: 160px;
+    height: 240px;
+  }
+  .favorites-btn {
+    width: 160px;
+    height: 40px;
+
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    row-gap: 24px;
+
+    width: 100%;
+  }
+  .poster {
+    width: 320px;
+    height: 480px;
+  }
+  .favorites-btn {
+    width: 320px;
+    height: 60px;
+
+    font-size: 16px;
+  }
+  .title {
+    text-align: center;
+  }
+  .headling {
+    font-size: 18px !important;
+    text-align: center;
+  }
+  .overview {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  .description {
+    font-size: 16px !important;
+  }
+  .tags {
+    align-items: center;
+    justify-content: center;
+  }
+  .tag {
+    font-size: 14px !important;
+  }
+  .vote-wrapper {
+    justify-content: center;
+  }
+  .vote {
+    font-size: 14px !important;
+  }
+  .imdb {
+    width: 32px;
+  }
+}
+
 .tag {
   display: flex;
 
@@ -96,6 +186,8 @@
 
   font-size: 14px;
   color: var(--primary-color);
+
+  width: max-content;
 }
 
 .trailer {
