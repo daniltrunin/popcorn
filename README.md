@@ -7,7 +7,7 @@
 </h1>
 
 <h4 align="center">A movie database application based on <a href="https://react.dev/" target="_blank">React</a></h4>
-<h4 align="center">Created by frontend developer from Orenburg, Russia — <a href="https://github.com/Lovelymercedanet" target="_blank">Daniil</a></h4>
+<h4 align="center">Created by frontend developer from Orenburg, Russia — <a href="https://github.com/daniltrunin" target="_blank">Daniil</a></h4>
 <h4 align="center">Click <a href="https://popcorn-danil.netlify.app/">here</a> to open the application</h4>
 
 > [!WARNING]  
@@ -20,7 +20,7 @@
     <a href="https://t.me/shoutoutbelgium">
     <img src="https://img.shields.io/badge/Telegram-7ec8e3">
     </a>
-    <a href="https://github.com/Lovelymercedanet">
+    <a href="https://github.com/daniltrunin">
     <img src="https://img.shields.io/badge/GitHub-868b8e">
     </a>
 </p>
@@ -74,7 +74,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/Lovelymercedanet/popcorn.git
+$ git clone https://github.com/daniltrunin/popcorn.git
 
 # Install dependencies
 $ npm install axios
@@ -96,11 +96,11 @@ $ npm start
 
 ## You may also like...
 
-- [Popcorn Server](https://github.com/Lovelymercedanet/popcorn-Express.JS-server) - Popcorn Express.JS Server
-- [Chatify](https://github.com/Lovelymercedanet/chatify-client) - Real Time Chat Based App
+- [Popcorn Server](https://github.com/daniltrunin/popcorn-Express.JS-server) - Popcorn Express.JS Server
+- [Chatify](https://github.com/daniltrunin/chatify-client) - Real Time Chat Based App
 - [Habbit](https://github.com/amitmerchant1990/correo) - Task, Habbits Tracker App
 
 ---
 
-> GitHub [@Lovelymercedanet](https://github.com/lovelymercedanet) &nbsp;&middot;&nbsp;
+> GitHub [@daniltrunin](https://github.com/daniltrunin) &nbsp;&middot;&nbsp;
 > Telegram [@shoutoutbelgium](https://t.me/shoutoutbelgium)
